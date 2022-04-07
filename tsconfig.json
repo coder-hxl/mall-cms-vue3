@@ -1,16 +1,34 @@
 {
   "compilerOptions": {
+    // 目标代码(ts -> js(es5/6/7))
     "target": "esnext",
+    // 对类的字段，在构造器内使用Object.defineProperty来定义
     "useDefineForClassFields": true,
+    // 目标代码需要使用的模块化方案(commonjs require/module.export/es module import/export)
     "module": "esnext",
+    // 按照node的方式去解析模块 import / "/index.node"
     "moduleResolution": "node",
+    // 严格一些严格的检查(any)
     "strict": true,
+    // 对jsx进行怎么样的处理
     "jsx": "preserve",
+    // 要不要生成映射文件(ts -> js)
     "sourceMap": true,
-    "resolveJsonModule": true,
+    // export default/module.exports = {}
+    // es module 和 commonjs
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    // 解析 JSON 模块
+    "resolveJsonModule": true,
+    // 指定具体要解析使用的类型
+    "types": ["vite/client"],
+    // 路径解析(类似于webpack alias)
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    // 指定在项目中可以使用哪些库的类型(Proxy/Window/Document)
     "lib": ["esnext", "dom"]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
