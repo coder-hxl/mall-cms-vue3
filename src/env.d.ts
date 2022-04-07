@@ -6,3 +6,9 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
+
+// 自定义
+// 声明自定义指令
+declare const $filter: {
+  formatTime(value: string): string
+}
