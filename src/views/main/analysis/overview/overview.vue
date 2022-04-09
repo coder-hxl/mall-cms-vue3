@@ -18,6 +18,16 @@
         </ul>
       </xl-card>
     </div>
+
+    <div class="projectDir">
+      <xl-card title="项目结构">
+        <div class="align-left">
+          <pre class="bg-dir">
+            <code >{{ projectDir }}</code>
+          </pre>
+        </div>
+      </xl-card>
+    </div>
   </div>
 </template>
 
@@ -25,6 +35,7 @@
 import XlCard from '@/base-ui/card'
 
 import { technologyStacks } from './config/technology-stacks'
+import { projectDir } from './config/project-dir'
 </script>
 
 <style scoped lang="less">
@@ -47,6 +58,13 @@ import { technologyStacks } from './config/technology-stacks'
           padding-right: 16px;
         }
       }
+    }
+  }
+
+  .projectDir {
+    .bg-dir {
+      font-size: 14px;
+      background-color: rgb(245, 245, 245);
     }
   }
 }
