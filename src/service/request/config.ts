@@ -21,7 +21,7 @@ if (process.env.NODE_ENV == 'development') {
 } else if (process.env.NODE_ENV == 'production') {
   BASE_URL = '/api'
 } else {
-  BASE_URL = 'https://code.com'
+  BASE_URL = 'https://coderhxl.com'
 }
 
 export { BASE_URL, TIME_OUT }
