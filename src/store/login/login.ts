@@ -61,6 +61,8 @@ export const useLoginStore = defineStore({
     },
     async accountLoginAction(payload: IAccount) {
       // 1.实现登录逻辑
+      console.log(payload)
+
       const loginResult = await accountLoginRequest(payload)
       const { id, token } = loginResult.data
       this.changeToken(token)
