@@ -13,7 +13,6 @@ const xlRequest = new XlRequest({
       if (token) {
         config.headers ? (config.headers.Authorization = `Bearer ${token}`) : ''
       }
-      console.log(config)
 
       return config
     },
