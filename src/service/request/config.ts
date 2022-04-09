@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === 'development') {
 } else if (process.env.NODE_ENV === 'production') {
   BASE_URL = '/api'
 } else {
-  BASE_URL = 'https://codehxl.org/test'
+  BASE_URL = '/api'
 }
 
 export { BASE_URL, TIME_OUT }
