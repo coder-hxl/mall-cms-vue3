@@ -23,7 +23,11 @@ export default defineConfig({
     port: 3000,
     host: '0.0.0.0',
     proxy: {
-      '/api': 'http://152.136.185.210:5000'
+      '/api': {
+        target: 'http://152.136.185.210:5000',
+        changeOrigin: true,
+        rewrite: (p) => p.replace(/^\/api/, '')
+      }
     }
   }
 })
