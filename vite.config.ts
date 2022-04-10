@@ -1,6 +1,7 @@
+const path = require('path')
+
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-const path = require('path')
 
 // ElementPlus按需导入样式
 import ElementPlus from 'unplugin-element-plus/vite'
