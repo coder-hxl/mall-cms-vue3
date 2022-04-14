@@ -30,13 +30,18 @@ const collapseWidth = ref('64px')
 const handleFoldChange = (isFold: boolean) => {
   isCollapse.value = isFold
 }
-
-window.addEventListener('resize', () => {
+function changeCollapseWidth() {
   if (window.innerWidth <= 768) {
     collapseWidth.value = '0'
   } else {
     collapseWidth.value = '64px'
   }
+}
+
+changeCollapseWidth()
+
+window.addEventListener('resize', () => {
+  changeCollapseWidth()
 })
 </script>
 
