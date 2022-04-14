@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <el-container class="main-content">
-      <el-aside :width="isCollapse ? '64px' : '210px'">
+      <el-aside :width="isCollapse ? collapseWidth : '210px'" class="menu">
         <nav-menu :collapse="isCollapse" />
       </el-aside>
       <el-container class="page">
@@ -25,13 +25,32 @@ import navMenu from '@/components/nav-menu'
 import navHeader from '@/components/nav-header'
 
 const isCollapse = ref(false)
+const collapseWidth = ref('64px')
 
 const handleFoldChange = (isFold: boolean) => {
   isCollapse.value = isFold
 }
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth <= 768) {
+    collapseWidth.value = '0'
+  } else {
+    collapseWidth.value = '64px'
+  }
+})
 </script>
 
 <style scoped lang="less">
+@media (max-width: 768px) {
+  .menu {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    height: 100%;
+    z-index: 999;
+  }
+}
+
 .main {
   position: fixed;
   top: 0;

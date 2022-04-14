@@ -2,7 +2,7 @@
   <div class="nav-menu">
     <div class="logo">
       <img class="img" src="~@/assets/img/logo.svg" alt="logo" />
-      <span v-if="!collapse" class="title">Coderhxl-CMS</span>
+      <pre v-if="!collapse" class="title">Coderhxl-CMS</pre>
     </div>
     <el-menu
       :default-active="routePath"
@@ -78,7 +78,6 @@ const routePath = route.path
     display: flex;
     height: 28px;
     padding: 12px 8px 10px 8px;
-    flex-direction: row;
     justify-content: flex-start;
     align-items: center;
 
@@ -88,8 +87,10 @@ const routePath = route.path
     }
 
     .title {
+      line-height: 16px;
+      font-family: '微软雅黑';
       font-size: 16px;
-      font-weight: 700;
+      font-weight: 600;
       color: #fff;
     }
   }
