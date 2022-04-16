@@ -15,17 +15,17 @@ export function reactiveWidth(
 ): Ref<any> {
   const targetResult = ref<any>()
 
-  function changeTargetWidth() {
+  function changeTargetResult() {
     if (window.innerWidth <= 768) {
       targetResult.value = xlWidthResult
     } else if (window.innerWidth >= 768) {
       targetResult.value = smWidthResult
     }
   }
-  changeTargetWidth()
+  changeTargetResult()
 
   window.addEventListener('resize', () => {
-    changeTargetWidth()
+    changeTargetResult()
   })
 
   return targetResult
