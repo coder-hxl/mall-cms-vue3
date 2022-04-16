@@ -30,4 +30,8 @@ const { pageModalRef, defaultInfo, handleEditData, handleNewData } =
   usePageModal()
 </script>
 
-<style scoped></style>
+<style scoped>
+.menu {
+  z-index: 998;
+}
+</style>
