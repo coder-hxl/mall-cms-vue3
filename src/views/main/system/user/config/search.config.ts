@@ -1,7 +1,8 @@
 import { IForm } from '@/base-ui/form'
+import { reactiveWidth } from '@/utils/reactive-width'
 
 export const searchFormConfig: IForm = {
-  labelWidth: '120px',
+  labelWidth: reactiveWidth('70px', '120px') as unknown as string,
   itemStyle: {
     padding: '10px 40px'
   },

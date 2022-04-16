@@ -2,7 +2,7 @@
   <div class="page-modal">
     <el-dialog
       v-model="dialogVisible"
-      width="30%"
+      :width="dialogWidth"
       :title="modalConfig.title"
       destroy-on-close
       center
@@ -27,6 +27,8 @@ import { useListStore } from '@/store'
 
 import XlForm from '@/base-ui/form'
 
+import { reactiveWidth } from '@/utils/reactive-width'
+
 const props = defineProps({
   modalConfig: {
     type: Object,
@@ -50,6 +52,7 @@ const listStore = useListStore()
 
 const dialogVisible = ref(false)
 const formItems = ref<any>({})
+const dialogWidth = reactiveWidth('90%', '30%')
 
 watch(
   () => props.defaultInfo,
