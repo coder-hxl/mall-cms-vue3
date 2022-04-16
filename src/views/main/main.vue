@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <el-container class="main-content">
-      <el-aside :width="isCollapse ? collapseWidth : '210px'" class="menu">
+      <el-aside :width="isCollapse ? collapseWidth : '210px'" class="main-menu">
         <nav-menu :collapse="isCollapse" />
       </el-aside>
       <el-container class="page">
@@ -36,7 +36,7 @@ const handleFoldChange = (isFold: boolean) => {
 
 <style scoped lang="less">
 @media (max-width: 768px) {
-  .menu {
+  .main-menu {
     position: fixed;
     top: 50px;
     left: 0;
