@@ -1,11 +1,11 @@
 <template>
   <div class="dashboard">
     <div class="dashboard-statistical">
-      <xl-page-statistical
+      <page-statistical
         v-for="item in amountGoodsList"
         :key="item.title"
         v-bind="item"
-      ></xl-page-statistical>
+      ></page-statistical>
     </div>
 
     <div class="dashboard-echarts">
@@ -43,7 +43,7 @@ import { computed } from 'vue'
 import { useDashboardStore } from '@/store'
 
 import XlCard from '@/base-ui/card'
-import XlPageStatistical from '@/components/page-statistical'
+import pageStatistical from '@/components/page-statistical'
 import {
   pieEchart,
   roseEchart,
