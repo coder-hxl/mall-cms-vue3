@@ -24,7 +24,7 @@ export const contentTableConfig: ITable = {
     },
     {
       label: '操作',
-      minWidth: '100',
+      minWidth: '130',
       slotName: 'handle'
     }
   ]
