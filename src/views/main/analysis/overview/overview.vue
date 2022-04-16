@@ -1,6 +1,6 @@
 <template>
   <div class="overview">
-    <div>
+    <div class="about">
       <xl-card title="关于">
         vue3-ts-cms 是基于
         Vue3、Pinia、VueRouter、Vite、ElementPlus、TypeScript、Echart5
@@ -19,7 +19,7 @@
       </xl-card>
     </div>
 
-    <div class="projectDir">
+    <div v-if="showProjectDir" class="projectDir">
       <xl-card title="项目结构">
         <div class="align-left">
           <pre class="bg-dir">
@@ -36,6 +36,10 @@ import XlCard from '@/base-ui/card'
 
 import { technologyStacks } from './config/technology-stacks'
 import { projectDir } from './config/project-dir'
+
+import { reactiveWidth } from '@/utils/reactive-width'
+
+const showProjectDir = reactiveWidth(false, true)
 </script>
 
 <style scoped lang="less">

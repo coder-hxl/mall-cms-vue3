@@ -24,25 +24,14 @@ import { ref } from 'vue'
 import navMenu from '@/components/nav-menu'
 import navHeader from '@/components/nav-header'
 
+import { reactiveWidth } from '@/utils/reactive-width'
+
 const isCollapse = ref(false)
-const collapseWidth = ref('64px')
+const collapseWidth = reactiveWidth('0', '64px')
 
 const handleFoldChange = (isFold: boolean) => {
   isCollapse.value = isFold
 }
-function changeCollapseWidth() {
-  if (window.innerWidth <= 768) {
-    collapseWidth.value = '0'
-  } else {
-    collapseWidth.value = '64px'
-  }
-}
-
-changeCollapseWidth()
-
-window.addEventListener('resize', () => {
-  changeCollapseWidth()
-})
 </script>
 
 <style scoped lang="less">
