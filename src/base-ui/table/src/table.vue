@@ -50,7 +50,7 @@
           :page-sizes="[10, 20, 30]"
           :page-size="page.pageSize"
           :current-page="page.currentPage"
-          layout="total, sizes, prev, pager, next, jumper"
+          :layout="paginationLayout"
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
         />
@@ -61,6 +61,7 @@
 
 <script setup lang="ts">
 import { PropType } from 'vue'
+import { reactiveWidth } from '@/utils/reactive-width'
 
 const props = defineProps({
   listData: {
@@ -102,6 +103,11 @@ const props = defineProps({
 })
 
 const emits = defineEmits(['selectionChange', 'update:page'])
+
+const paginationLayout = reactiveWidth(
+  'total, sizes, prev, pager, next',
+  'total, sizes, prev, pager, next, jumper'
+)
 
 const handleSelectionChange = (value: any) => {
   emits('selectionChange', value)
