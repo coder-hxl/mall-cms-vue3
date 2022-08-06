@@ -43,7 +43,7 @@ export const searchFormConfig: IForm = {
       placeholder: '请选择用户状态',
       options: [
         { title: '启动', value: 1 },
-        { title: '禁用', value: 2 }
+        { title: '禁用', value: 0 }
       ]
     },
     {
