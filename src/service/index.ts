@@ -14,6 +14,8 @@ const xlRequest = new XlRequest({
         config.headers ? (config.headers.Authorization = `Bearer ${token}`) : ''
       }
 
+      console.log(config.data)
+
       return config
     },
     requestInterceptorCatch: (error) => {
