@@ -23,8 +23,8 @@ export const modalConfig: IPageModal = {
       {
         field: 'leader',
         type: 'input',
-        label: '权限介绍',
-        placeholder: '请输入权限介绍'
+        label: '管理员',
+        placeholder: '请输入管理员名称'
       }
     ]
   }

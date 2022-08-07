@@ -20,7 +20,7 @@ export const contentTableConfig: ITable = {
       minWidth: '100'
     },
     {
-      label: '按钮权限',
+      label: '权限',
       prop: 'permission',
       minWidth: '100'
     },

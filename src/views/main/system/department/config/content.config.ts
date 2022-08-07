@@ -11,7 +11,7 @@ export const contentTableConfig: ITable = {
       minWidth: '100'
     },
     {
-      label: '权限介绍',
+      label: '管理员',
       prop: 'leader',
       minWidth: '100'
     },
