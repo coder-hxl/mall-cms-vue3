@@ -4,7 +4,7 @@ import { reactiveWidth } from '@/utils/reactive-width'
 export const modalConfig: IPageModal = {
   title: '创建商品',
   formConfig: {
-    labelWidth: reactiveWidth('70px', '120px') as unknown as string,
+    labelWidth: reactiveWidth('70px', '120px'),
     colLayout: {},
     itemStyle: {},
     formItems: [
