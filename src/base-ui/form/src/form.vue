@@ -3,7 +3,7 @@
     <div class="header">
       <slot name="header"></slot>
     </div>
-    <el-form :label-width="labelWidth" size="large">
+    <el-form :label-width="labelWidth.value" size="large">
       <el-row>
         <template v-for="item in formItems" :key="item.label">
           <el-col v-bind="colLayout">
@@ -59,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType } from 'vue'
+import { PropType, Ref, ref } from 'vue'
 import { IFormItem } from '../types'
 
 const props = defineProps({
@@ -72,8 +72,8 @@ const props = defineProps({
     default: () => []
   },
   labelWidth: {
-    type: String,
-    default: '100px'
+    type: Object as PropType<Ref<string>>,
+    default: () => ref('100px')
   },
   itemStyle: {
     type: Object,

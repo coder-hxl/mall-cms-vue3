@@ -1,3 +1,5 @@
+import { Ref } from 'vue'
+
 type IFormType = 'input' | 'password' | 'select' | 'picker'
 
 export interface IFormItem {
@@ -15,7 +17,7 @@ export interface IFormItem {
 
 export interface IForm {
   formItems: IFormItem[]
-  labelWidth?: string
+  labelWidth?: Ref<string>
   colLayout?: any
   itemStyle?: any
 }
