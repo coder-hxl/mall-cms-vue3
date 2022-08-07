@@ -3,7 +3,7 @@ import xlRequest from '../../index'
 import { IDataType } from '../../types'
 
 export function getPageListData(url: string, queryInfo: any) {
-  // 解决 element 日期时间转换问题
+  // 解决 elementPlus 日期时间转换问题
   const keys = Object.keys(queryInfo)
   for (const key of keys) {
     if ((key === 'createAt' || key === 'updateAt') && queryInfo[key]) {
