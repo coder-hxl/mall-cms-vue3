@@ -15,13 +15,12 @@
 
       <!-- 列表中的插槽 -->
       <template #status="scope">
-        <el-button
-          plain
-          size="small"
-          :type="scope.row.enable ? 'success' : 'danger'"
-        >
-          {{ scope.row.enable ? '启动' : '禁止' }}
-        </el-button>
+        <el-icon v-if="scope.row.enable" :size="20" color="#67c23a">
+          <CircleCheckFilled />
+        </el-icon>
+        <el-icon v-else :size="20" color="#f56c6c">
+          <CircleCloseFilled />
+        </el-icon>
       </template>
       <template #createAt="scope">
         <span>{{ $filter.formatTime(scope.row.createAt) }}</span>

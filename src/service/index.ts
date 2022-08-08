@@ -2,6 +2,7 @@ import XlRequest from './request'
 import { BASE_URL, TIME_OUT } from './request/config'
 
 import localCache from '@/utils/cache'
+import notification from '@/utils/notification'
 
 const xlRequest = new XlRequest({
   baseURL: BASE_URL,
@@ -23,6 +24,9 @@ const xlRequest = new XlRequest({
       return res
     },
     responseInterceptorCatch: (error) => {
+      const data = error.response.data
+      notification.error(`${data.code} ${data.data}`)
+
       return error
     }
   }

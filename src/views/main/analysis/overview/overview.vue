@@ -2,7 +2,7 @@
   <div class="overview">
     <div class="about">
       <xl-card title="关于">
-        vue3-ts-cms 是基于
+        MALL-CMS-Vue3 是基于
         Vue3、Pinia、VueRouter、Vite、ElementPlus、TypeScript、Echart5
         等技术实现的。
       </xl-card>

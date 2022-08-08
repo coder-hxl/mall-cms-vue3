@@ -1,5 +1,7 @@
 import xlRequest from '../index'
 
+import notification from '@/utils/notification'
+
 import { IDataType } from '../types'
 import { IAccount, ILoginResult } from './type'
 
@@ -12,7 +14,14 @@ enum LoginAPI {
 export function accountLoginRequest(account: IAccount) {
   return xlRequest.post<IDataType<ILoginResult>>({
     url: LoginAPI.accountLogin,
-    data: account
+    data: account,
+    interceptors: {
+      responseInterceptor(res) {
+        notification.success(`登录成功, 欢迎回来~`)
+
+        return res
+      }
+    }
   })
 }
 

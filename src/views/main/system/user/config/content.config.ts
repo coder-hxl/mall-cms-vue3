@@ -18,12 +18,12 @@ export const contentTableConfig: ITable = {
     {
       label: '手机号码',
       prop: 'cellphone',
-      minWidth: '100'
+      minWidth: '150'
     },
     {
       label: '状态',
       prop: 'enable',
-      minWidth: '100',
+      minWidth: '60',
       slotName: 'status'
     },
     {
