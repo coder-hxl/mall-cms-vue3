@@ -32,20 +32,18 @@
         <div class="handle-btns">
           <el-button
             v-if="isUpdate"
+            type="primary"
             size="small"
-            type="text"
+            :icon="Edit"
             @click="handleEditClick(scope.row)"
-          >
-            <el-icon><EditPen /></el-icon> 编辑
-          </el-button>
+          />
           <el-button
             v-if="isDelete"
+            type="danger"
             size="small"
-            type="text"
+            :icon="Delete"
             @click="handleDeleteClick(scope.row)"
-          >
-            <el-icon><Delete /></el-icon> 删除
-          </el-button>
+          />
         </div>
       </template>
 
@@ -67,6 +65,7 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
+import { Delete, Edit } from '@element-plus/icons-vue'
 
 import { useListStore } from '@/store'
 

@@ -56,11 +56,11 @@ import {
   CircleCheckFilled,
   Refresh,
   Search,
-  EditPen,
   Delete,
   Bell,
   CollectionTag,
-  MoreFilled
+  MoreFilled,
+  Edit
 } from '@element-plus/icons-vue'
 
 const components = [
@@ -116,11 +116,11 @@ const componentsIcons = [
   Avatar,
   Refresh,
   Search,
-  EditPen,
   Delete,
   Bell,
   CollectionTag,
-  MoreFilled
+  MoreFilled,
+  Edit
 ]
 
 export default function (app: App) {
