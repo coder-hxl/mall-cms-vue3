@@ -1,4 +1,5 @@
 import { Ref } from 'vue'
+import { FormRules } from 'element-plus'
 
 type IFormType = 'input' | 'password' | 'select' | 'picker'
 
@@ -19,5 +20,5 @@ export interface IForm {
   labelWidth?: Ref<string>
   colLayout?: any
   itemStyle?: any
-  rules?: any
+  rules?: FormRules
 }

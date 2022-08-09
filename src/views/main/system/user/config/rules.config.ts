@@ -1,5 +1,7 @@
+import { FormRules } from 'element-plus'
+
 function getRules(type: 'create' | 'update') {
-  const rules: any = {
+  const rules: FormRules = {
     name: [
       {
         required: true,
@@ -36,6 +38,11 @@ function getRules(type: 'create' | 'update') {
         required: true,
         message: '手机号是必填内容~',
         trigger: 'blur'
+      },
+      {
+        pattern: /^[+]{0,1}(\d){1,3}[ ]?([-]?((\d)|[ ]){1,12})+$/,
+        message: '校验手机号码: 必须以数字开头, 除数字外, 可含有“-”',
+        trigger: 'blur'
       }
     ],
     enable: [
@@ -45,7 +52,7 @@ function getRules(type: 'create' | 'update') {
         trigger: 'blur'
       },
       {
-        pattern: /^[0-1]{1,1}$/,
+        pattern: /^0|1$/,
         message: '状态错误~',
         trigger: 'blur'
       }
@@ -53,7 +60,8 @@ function getRules(type: 'create' | 'update') {
   }
 
   if (type === 'create') {
-    rules.password.push({
+    const password = rules.passwor as any[]
+    password.push({
       required: true,
       message: '密码是必填内容~',
       trigger: 'blur'
