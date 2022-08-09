@@ -6,7 +6,6 @@ export interface IFormItem {
   field: string
   type: IFormType
   label: string
-  rules?: any[]
   placeholder?: any
   // 针对select
   options?: any[]
@@ -20,4 +19,5 @@ export interface IForm {
   labelWidth?: Ref<string>
   colLayout?: any
   itemStyle?: any
+  rules?: any
 }

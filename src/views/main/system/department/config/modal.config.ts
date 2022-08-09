@@ -16,15 +16,17 @@ export const modalConfig: IPageModal = {
       },
       {
         field: 'parentId',
-        type: 'input',
+        type: 'select',
         label: '上级部门',
-        placeholder: '请输入上级部门'
+        placeholder: '请输入上级部门',
+        options: []
       },
       {
         field: 'leader',
-        type: 'input',
-        label: '管理员',
-        placeholder: '请输入管理员名称'
+        type: 'select',
+        label: '负责人',
+        placeholder: '请输入负责人',
+        options: []
       }
     ]
   }

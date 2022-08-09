@@ -3,7 +3,13 @@
     <div class="header">
       <slot name="header"></slot>
     </div>
-    <el-form :label-width="labelWidth.value" size="large">
+    <el-form
+      :label-width="labelWidth.value"
+      :model="modelValue"
+      :rules="rules"
+      status-icon
+      size="large"
+    >
       <el-row>
         <template v-for="item in formItems" :key="item.label">
           <el-col v-bind="colLayout">
@@ -11,6 +17,7 @@
               v-if="!item.isHidden"
               :label="item.label"
               :style="itemStyle"
+              :prop="item.field"
             >
               <template
                 v-if="item.type === 'input' || item.type === 'password'"
@@ -35,6 +42,7 @@
                     v-for="option in item.options"
                     :key="option.value"
                     :value="option.value"
+                    :label="option.title"
                     >{{ option.title }}</el-option
                   >
                 </el-select>
@@ -60,6 +68,7 @@
 
 <script setup lang="ts">
 import { PropType, Ref, ref } from 'vue'
+
 import { IFormItem } from '../types'
 
 const props = defineProps({
@@ -88,6 +97,10 @@ const props = defineProps({
       md: 12,
       xs: 24
     })
+  },
+  rules: {
+    type: Object,
+    default: () => ({})
   }
 })
 

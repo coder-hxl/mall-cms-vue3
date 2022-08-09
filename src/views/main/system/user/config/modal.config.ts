@@ -7,6 +7,7 @@ export const modalConfig: IPageModal = {
     labelWidth: reactiveWidth('70px', '120px'),
     itemStyle: {},
     colLayout: {},
+    rules: {},
     formItems: [
       {
         field: 'name',

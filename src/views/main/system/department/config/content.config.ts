@@ -6,18 +6,24 @@ export const contentTableConfig: ITable = {
   showIndexColumn: true,
   propList: [
     {
+      label: '部门Id',
+      prop: 'id',
+      minWidth: '60'
+    },
+    {
       label: '部门名称',
       prop: 'name',
       minWidth: '100'
     },
+
     {
-      label: '管理员',
+      label: '负责人',
       prop: 'leader',
       minWidth: '100'
     },
     {
       label: '上级部门',
-      prop: 'parentId',
+      prop: 'parentName',
       minWidth: '100'
     },
     {

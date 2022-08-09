@@ -116,7 +116,7 @@ const getPageData = (queryInfo: any = {}) => {
 
 getPageData()
 
-// 3.从systemStore中获取数据
+// 3.从listStore中获取数据
 const dataList = computed(() => listStore.pageListData(props.pageName))
 const dataCount = computed(() => listStore.pageListCount(props.pageName))
 

@@ -7,8 +7,8 @@ export const rules = {
       trigger: 'blur'
     },
     {
-      pattern: /^[a-z0-9]{2,10}$/,
-      message: '用户名必须是2~10个字母或者数字~',
+      pattern: /^[a-z0-9]{2,20}$/,
+      message: '用户名必须是2~20个字母或者数字~',
       trigger: 'blur'
     }
   ],

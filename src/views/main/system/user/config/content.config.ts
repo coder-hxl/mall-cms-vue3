@@ -6,6 +6,11 @@ export const contentTableConfig: ITable = {
   showSelectColumn: true,
   propList: [
     {
+      label: '用户Id',
+      prop: 'id',
+      minWidth: '60'
+    },
+    {
       label: '用户名',
       prop: 'name',
       minWidth: '100'

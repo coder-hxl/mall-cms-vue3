@@ -19,8 +19,8 @@ export const searchFormConfig: IForm = {
     {
       field: 'leader',
       type: 'input',
-      label: '权限介绍',
-      placeholder: '请输入权限介绍'
+      label: '负责人',
+      placeholder: '请输入负责人'
     },
     {
       field: 'createAt',

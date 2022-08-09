@@ -7,12 +7,16 @@ import { IInitializeSate } from './types'
 export const useInitializeStore = defineStore({
   id: 'initialize',
   state: (): IInitializeSate => ({
+    entireUser: [],
     entireDepartment: [],
     entireRole: [],
     entireMenu: []
   }),
   getters: {},
   actions: {
+    changeUser(list: any[]) {
+      this.entireUser = list
+    },
     changeDepartment(list: any[]) {
       this.entireDepartment = list
     },
@@ -23,24 +27,19 @@ export const useInitializeStore = defineStore({
       this.entireMenu = list
     },
     async getInitializeAction() {
-      const departmentResult = await getPageListData('/department/list', {
-        offset: 0,
-        size: 1000
-      })
+      const userResult = await getPageListData('/users/list')
+      const { list: userList } = userResult.data
+
+      const departmentResult = await getPageListData('/department/list')
       const { list: departmentList } = departmentResult.data
 
-      const roleResult = await getPageListData('/role/list', {
-        offset: 0,
-        size: 1000
-      })
+      const roleResult = await getPageListData('/role/list')
       const { list: roleList } = roleResult.data
 
-      const menuResult = await getPageListData('/menu/list', {
-        offset: 0,
-        size: 1000
-      })
+      const menuResult = await getPageListData('/menu/list')
       const { list: menuList } = menuResult.data
 
+      this.changeUser(userList)
       this.changeDepartment(departmentList)
       this.changeRole(roleList)
       this.changeMenu(menuList)

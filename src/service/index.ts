@@ -15,6 +15,14 @@ const xlRequest = new XlRequest({
         config.headers ? (config.headers.Authorization = `Bearer ${token}`) : ''
       }
 
+      // 去掉字符串前后空格
+      for (const key in config.data) {
+        const value = config.data[key]
+        if (typeof value === 'string') {
+          config.data[key] = value.trim()
+        }
+      }
+
       return config
     },
     requestInterceptorCatch: (error) => {

@@ -13,7 +13,6 @@
       :data="listData"
       border
       v-bind="childrenProps"
-      size="large"
       style="width: 100%"
       @selection-change="handleSelectionChange"
     >
