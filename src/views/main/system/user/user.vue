@@ -34,7 +34,7 @@ import pageModal from '@/components/page-modal'
 import { searchFormConfig } from './config/search.config'
 import { contentTableConfig } from './config/content.config'
 import { modalConfig } from './config/modal.config'
-import getRules from './config/rules.config'
+import { createRules, updateRules } from './config/rules.config'
 
 import { usePageSearch } from '@/hooks/use-page-search'
 import { usePageModal } from '@/hooks/use-page-modal'
@@ -50,7 +50,7 @@ const editCallback = () => {
   password!.label = '重置密码'
   password!.placeholder = '请输入新密码'
 
-  modalConfig.formConfig!.rules = getRules('update')
+  modalConfig.formConfig!.rules = updateRules
 }
 const newCallback = () => {
   const password = modalConfig.formConfig!.formItems.find(
@@ -59,7 +59,7 @@ const newCallback = () => {
   password!.label = '用户密码'
   password!.placeholder = '请输入用户密码'
 
-  modalConfig.formConfig!.rules = getRules('create')
+  modalConfig.formConfig!.rules = createRules
 }
 
 // 2.动态添加部门和角色选项

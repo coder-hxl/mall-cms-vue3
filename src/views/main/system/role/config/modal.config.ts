@@ -1,12 +1,15 @@
 import { IPageModal } from '@/components/page-modal'
 import { reactiveWidth } from '@/utils/reactive-width'
 
+import rules from './rules.config'
+
 export const modalConfig: IPageModal = {
   title: '角色',
   formConfig: {
     labelWidth: reactiveWidth('70px', '120px'),
     itemStyle: {},
     colLayout: {},
+    rules: rules,
     formItems: [
       {
         field: 'name',

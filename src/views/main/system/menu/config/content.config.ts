@@ -10,6 +10,11 @@ export const contentTableConfig: ITable = {
       minWidth: '100'
     },
     {
+      label: 'Id',
+      prop: 'id',
+      minWidth: '60'
+    },
+    {
       label: '类型',
       prop: 'type',
       minWidth: '100'

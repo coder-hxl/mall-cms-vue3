@@ -1,12 +1,15 @@
 import { IPageModal } from '@/components/page-modal'
 import { reactiveWidth } from '@/utils/reactive-width'
 
+import rules from './rules.config'
+
 export const modalConfig: IPageModal = {
   title: '菜单',
   formConfig: {
     labelWidth: reactiveWidth('90px', '120px'),
     itemStyle: {},
     colLayout: {},
+    rules: rules,
     formItems: [
       {
         field: 'name',
@@ -16,9 +19,14 @@ export const modalConfig: IPageModal = {
       },
       {
         field: 'type',
-        type: 'input',
+        type: 'select',
         label: '类型',
-        placeholder: '请输入类型'
+        placeholder: '请输入类型',
+        options: [
+          { title: 1, value: 1 },
+          { title: 2, value: 2 },
+          { title: 3, value: 3 }
+        ]
       },
       {
         field: 'url',
@@ -29,8 +37,8 @@ export const modalConfig: IPageModal = {
       {
         field: 'sort',
         type: 'input',
-        label: '种类',
-        placeholder: '请输入种类'
+        label: '排序',
+        placeholder: '请输入排序'
       },
       {
         field: 'parentId',
