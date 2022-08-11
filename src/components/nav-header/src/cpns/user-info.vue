@@ -7,10 +7,7 @@
 
     <el-dropdown>
       <span class="el-dropdown-link">
-        <el-avatar
-          :size="32"
-          src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
-        ></el-avatar>
+        <el-avatar :size="32" :src="avatar"></el-avatar>
       </span>
       <template #dropdown>
         <el-dropdown-menu>
@@ -38,6 +35,7 @@ import notification from '@/utils/notification'
 
 const loginStore = useLoginStore()
 const name = computed(() => loginStore.userInfo.name)
+const avatar = computed(() => loginStore.userInfo.avatarUrl)
 
 const handleExitClick = () => {
   localCache.deleteCache('token')
