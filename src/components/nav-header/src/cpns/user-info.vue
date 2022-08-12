@@ -1,17 +1,23 @@
 <template>
   <div class="user-info">
-    <div class="button-icon">
-      <el-icon :size="20"><CollectionTag /></el-icon>
-      <el-icon :size="20"><Bell /></el-icon>
-    </div>
-
     <el-dropdown>
       <span class="el-dropdown-link">
-        <el-avatar :size="32" :src="avatar"></el-avatar>
+        <el-avatar :size="32" :src="avatarUrl" icon="UserFilled"></el-avatar>
       </span>
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item icon="Avatar">{{ name }}</el-dropdown-item>
+          <el-dropdown-item divided icon="Edit">
+            <el-upload
+              :action="uploadAvatarUrl"
+              :headers="headers"
+              name="avatar"
+              :show-file-list="false"
+              :on-success="handleAvatarSuccess"
+            >
+              更新头像
+            </el-upload>
+          </el-dropdown-item>
           <el-dropdown-item
             divided
             icon="CircleCloseFilled"
@@ -33,9 +39,20 @@ import router from '@/router'
 import localCache from '@/utils/cache'
 import notification from '@/utils/notification'
 
+import { BASE_URL } from '@/service/request/config'
+
 const loginStore = useLoginStore()
 const name = computed(() => loginStore.userInfo.name)
-const avatar = computed(() => loginStore.userInfo.avatarUrl)
+const avatarUrl = computed(() => loginStore.userInfo.avatarUrl)
+
+const uploadAvatarUrl = computed(() => `${BASE_URL}/upload/avatar`)
+const headers = computed(() => {
+  const token = localCache.getCache('token')
+  return { Authorization: `Bearer ${token}` }
+})
+const handleAvatarSuccess = () => {
+  notification.success('上传成功~')
+}
 
 const handleExitClick = () => {
   localCache.deleteCache('token')

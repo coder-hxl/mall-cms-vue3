@@ -34,14 +34,14 @@
             v-if="isUpdate"
             type="primary"
             size="small"
-            :icon="Edit"
+            icon="Edit"
             @click="handleEditClick(scope.row)"
           />
           <el-button
             v-if="isDelete"
             type="danger"
             size="small"
-            :icon="Delete"
+            icon="Delete"
             @click="handleDeleteClick(scope.row)"
           />
         </div>
@@ -65,7 +65,6 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
-import { Delete, Edit } from '@element-plus/icons-vue'
 
 import { useListStore } from '@/store'
 
