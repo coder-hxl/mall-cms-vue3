@@ -6,7 +6,7 @@ export const contentTableConfig: ITable = {
   showIndexColumn: true,
   propList: [
     {
-      label: '类别名称',
+      label: '类别',
       prop: 'name',
       minWidth: '100'
     },

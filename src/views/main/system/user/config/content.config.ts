@@ -26,6 +26,16 @@ export const contentTableConfig: ITable = {
       minWidth: '150'
     },
     {
+      label: '角色',
+      prop: 'role',
+      minWidth: '120'
+    },
+    {
+      label: '部门',
+      prop: 'department',
+      minWidth: '120'
+    },
+    {
       label: '状态',
       prop: 'enable',
       minWidth: '60',
@@ -34,13 +44,13 @@ export const contentTableConfig: ITable = {
     {
       label: '创建时间',
       prop: 'createAt',
-      minWidth: '250',
+      minWidth: '200',
       slotName: 'createAt'
     },
     {
       label: '更新时间',
       prop: 'updateAt',
-      minWidth: '250',
+      minWidth: '200',
       slotName: 'updateAt'
     },
     {
