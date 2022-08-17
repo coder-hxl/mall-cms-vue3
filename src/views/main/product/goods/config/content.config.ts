@@ -8,7 +8,7 @@ export const contentTableConfig: ITable = {
     {
       label: '商品名称',
       prop: 'name',
-      minWidth: '80'
+      minWidth: '100'
     },
     {
       label: '原价格',
@@ -23,6 +23,17 @@ export const contentTableConfig: ITable = {
       slotName: 'newPrice'
     },
     {
+      label: '商品描述',
+      prop: 'description',
+      minWidth: '200'
+    },
+    {
+      label: '状态',
+      prop: 'enable',
+      minWidth: '60',
+      slotName: 'status'
+    },
+    {
       label: '商品图片',
       prop: 'imgUrl',
       minWidth: '100',
@@ -31,6 +42,11 @@ export const contentTableConfig: ITable = {
     {
       label: '库存',
       prop: 'inventoryCount',
+      minWidth: '80'
+    },
+    {
+      label: '出售',
+      prop: 'saleCount',
       minWidth: '80'
     },
     {
@@ -46,13 +62,13 @@ export const contentTableConfig: ITable = {
     {
       label: '创建时间',
       prop: 'createAt',
-      minWidth: '180',
+      minWidth: '160',
       slotName: 'createAt'
     },
     {
       label: '更新时间',
       prop: 'updateAt',
-      minWidth: '180',
+      minWidth: '160',
       slotName: 'updateAt'
     },
     {

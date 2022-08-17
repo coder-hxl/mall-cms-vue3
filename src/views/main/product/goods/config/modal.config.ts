@@ -1,5 +1,6 @@
 import { IPageModal } from '@/components/page-modal'
 import { reactiveWidth } from '@/utils/reactive-width'
+import rules from './rules.config'
 
 export const modalConfig: IPageModal = {
   title: '创建商品',
@@ -7,6 +8,7 @@ export const modalConfig: IPageModal = {
     labelWidth: reactiveWidth('70px', '120px'),
     colLayout: {},
     itemStyle: {},
+    rules: rules,
     formItems: [
       {
         field: 'name',
@@ -19,6 +21,12 @@ export const modalConfig: IPageModal = {
         type: 'input',
         label: '原价格',
         placeholder: '请输入原价格'
+      },
+      {
+        field: 'description',
+        type: 'input',
+        label: '描述',
+        placeholder: '请输入描述'
       },
       {
         field: 'newPrice',
@@ -49,12 +57,6 @@ export const modalConfig: IPageModal = {
         type: 'input',
         label: '地址',
         placeholder: '请输入地址'
-      },
-      {
-        field: 'desc',
-        type: 'input',
-        label: '描述',
-        placeholder: '请输入描述'
       }
     ]
   }
