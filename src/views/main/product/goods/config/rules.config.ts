@@ -47,7 +47,8 @@ const rules: FormRules = {
       message: '图片路径是必填内容~'
     },
     {
-      pattern: /^[\u4e00-\u9fa5_a-zA-Z0-9+]{1,255}$/,
+      pattern:
+        /^(http|https):\/\/[\w\-_\u4E00-\u9FA5:/]+(\.[\w\-_\u4E00-\u9FA5]+)+([\u4E00-\u9FA5\w\-.,@?^=%&:/~+#]*[\u4E00-\u9FA5\w\-@?^=%&/~+#])?$/,
       message: '描述的长度必须在1~255中~'
     }
   ],

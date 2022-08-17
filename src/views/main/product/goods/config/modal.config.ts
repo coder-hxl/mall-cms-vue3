@@ -23,16 +23,26 @@ export const modalConfig: IPageModal = {
         placeholder: '请输入原价格'
       },
       {
+        field: 'newPrice',
+        type: 'input',
+        label: '现价格',
+        placeholder: '请输入现价格'
+      },
+      {
         field: 'description',
         type: 'input',
         label: '描述',
         placeholder: '请输入描述'
       },
       {
-        field: 'newPrice',
-        type: 'input',
-        label: '现价格',
-        placeholder: '请输入现价格'
+        field: 'enable',
+        type: 'select',
+        label: '状态',
+        placeholder: '状态',
+        options: [
+          { title: '启动', value: 1 },
+          { title: '禁用', value: 0 }
+        ]
       },
       {
         field: 'imgUrl',
@@ -45,6 +55,12 @@ export const modalConfig: IPageModal = {
         type: 'input',
         label: '库存',
         placeholder: '请输入库存'
+      },
+      {
+        field: 'saleCount',
+        type: 'input',
+        label: '出售数',
+        placeholder: '请输入出售数'
       },
       {
         field: 'favorCount',
