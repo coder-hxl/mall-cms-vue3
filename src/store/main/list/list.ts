@@ -25,7 +25,10 @@ export const useListStore = defineStore({
     categoryList: [],
     categoryCount: 0,
     goodsList: [],
-    goodsCount: 0
+    goodsCount: 0,
+    // 故事
+    storyList: [],
+    storyCount: 0
   }),
   getters: {
     pageListData(state: any) {
@@ -40,48 +43,9 @@ export const useListStore = defineStore({
     }
   },
   actions: {
-    // 系统管理
-    changeUsersList(list: any[]) {
-      this.usersList = list
-    },
-    changeUsersCount(count: number) {
-      this.usersCount = count
-    },
-    changeDepartmentList(list: any[]) {
-      this.departmentList = list
-    },
-    changedepartmentCount(count: number) {
-      this.departmentCount = count
-    },
-    changeMenuList(list: any[]) {
-      this.menuList = list
-    },
-    changeMenuCount(count: number) {
-      this.menuCount = count
-    },
-    changeRoleList(list: any[]) {
-      this.roleList = list
-    },
-    changeRoleCount(count: number) {
-      this.roleCount = count
-    },
-    // 商品中心
-    changeCategoryList(list: any[]) {
-      this.categoryList = list
-    },
-    changeCategoryCount(count: number) {
-      this.categoryCount = count
-    },
-    changeGoodsList(list: any[]) {
-      this.goodsList = list
-    },
-    changeGoodsCount(count: number) {
-      this.goodsCount = count
-    },
-
     async getPageListAction(payload: any) {
       // 1.获取pageUrl
-      const pageName = payload.pageName
+      const pageName: string = payload.pageName
       const pageUrl = `/${pageName}/list`
 
       // 2.在页面发送请求
@@ -89,34 +53,10 @@ export const useListStore = defineStore({
       const { list, totalCount } = pageResult.data
 
       // 3.将数据存储到state中
-      switch (pageName) {
-        // 系统管理
-        case 'users':
-          this.changeUsersList(list)
-          this.changeUsersCount(totalCount)
-          break
-        case 'department':
-          this.changeDepartmentList(list)
-          this.changedepartmentCount(totalCount)
-          break
-        case 'menu':
-          this.changeMenuList(list)
-          this.changeMenuCount(totalCount)
-          break
-        case 'role':
-          this.changeRoleList(list)
-          this.changeRoleCount(totalCount)
-          break
-        // 商品中心
-        case 'category':
-          this.changeCategoryList(list)
-          this.changeCategoryCount(totalCount)
-          break
-        case 'goods':
-          this.changeGoodsList(list)
-          this.changeGoodsCount(totalCount)
-          break
-      }
+      const changeList = `${pageName}List`
+      const changeCount = `${pageName}Count`
+      this[changeList] = list
+      this[changeCount] = totalCount
     },
     async deletePageDataAction(payload: any) {
       // 1.获取url

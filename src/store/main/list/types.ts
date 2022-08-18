@@ -12,4 +12,7 @@ export interface IListState {
   categoryCount: number
   goodsList: any[]
   goodsCount: number
+
+  storyList: any[]
+  storyCount: number
 }
