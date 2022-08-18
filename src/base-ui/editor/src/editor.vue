@@ -1,64 +1,128 @@
 <template>
   <div class="xl-editor">
-    <div style="border: 1px solid #ccc">
+    <div class="editor-box">
       <Toolbar
-        :editorId="editorId"
         :defaultConfig="toolbarConfig"
+        :editor="editorRef"
         :mode="mode"
-        style="border-bottom: 1px solid #ccc"
+        class="editor-box-toolbar"
       />
       <Editor
-        :editorId="editorId"
+        v-model="valueHtml"
         :defaultConfig="editorConfig"
-        :defaultContent="defaultContent"
         :mode="mode"
-        style="height: 600px; overflow-y: hidden"
+        class="editor-box-editor"
+        @onCreated="handleCreated"
+        @onMaxLength="handleMaxLength"
+        @onChange="handleChange"
       />
+    </div>
+    <div class="submit">
+      <el-button
+        type="primary"
+        :disabled="isSubmitDisabled"
+        class="submit-btn"
+        @click="handleSubmit"
+      >
+        发布
+      </el-button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onBeforeUnmount } from 'vue'
-import {
-  Toolbar,
-  Editor,
-  getEditor,
-  removeEditor
-} from '@wangeditor/editor-for-vue'
+import { onBeforeUnmount, shallowRef, ref } from 'vue'
+import { Toolbar, Editor } from '@wangeditor/editor-for-vue'
 
-import { IToolbarConfig, IEditorConfig } from '@wangeditor/editor'
+import { useListStore } from '@/store'
+import notification from '@/utils/notification'
+
+import { IToolbarConfig, IEditorConfig, IDomEditor } from '@wangeditor/editor'
 
 import '@wangeditor/editor/dist/css/style.css'
 
 const props = withDefaults(
   defineProps<{
-    editorId: string
+    pageName: string
     mode?: 'default' | 'simple'
-    defaultText?: string
   }>(),
   {
-    mode: 'default',
-    defaultText: `道阻且长 行则将至 coderhxl`
+    mode: 'default'
   }
 )
-
-const defaultContent = [
-  { type: 'paragraph', children: [{ text: props.defaultText }] }
-]
-
-const editorConfig: Partial<IEditorConfig> = {}
+const listStore = useListStore()
+const editorRef = shallowRef()
+const valueHtml = ref()
+const isSubmitDisabled = ref(true)
 
 const toolbarConfig: Partial<IToolbarConfig> = {}
+const editorConfig: Partial<IEditorConfig> = {
+  placeholder: '请输入内容...',
+  maxLength: 1000
+}
+
+const handleSubmit = () => {
+  listStore.createPageDataAction({
+    pageName: props.pageName,
+    newData: {
+      content: valueHtml.value
+    }
+  })
+}
+
+const handleCreated = (editor: IDomEditor) => {
+  editorRef.value = editor // 记录 editor 实例，重要！
+}
+
+const handleMaxLength = (editor: IDomEditor) => {
+  notification.error('超出限制数~')
+}
+
+const handleChange = (editor: IDomEditor) => {
+  const text = editor.getText().trim()
+
+  if (text) {
+    isSubmitDisabled.value = false
+  } else {
+    isSubmitDisabled.value = true
+  }
+}
 
 // 组件销毁前，销毁编辑器
 onBeforeUnmount(() => {
-  const editor = getEditor(props.editorId)
-  if (editor === null) return
-
-  editor.disable()
-  removeEditor(props.editorId)
+  const editor = editorRef.value
+  if (editor == null) return
+  editor.destroy()
 })
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+.xl-editor {
+  .editor-box {
+    position: relative;
+    .editor-box-toolbar {
+      position: sticky;
+      top: -20px;
+      border-bottom: 1px solid rgb(231, 231, 231);
+      z-index: 1000;
+    }
+    .editor-box-editor {
+      height: 800px !important;
+      text-align: left;
+      overflow-y: hidden;
+    }
+  }
+  .submit {
+    position: sticky;
+    bottom: -20px;
+    height: 50px;
+    line-height: 49px;
+    text-align: right;
+    border-top: 1px solid rgb(231, 231, 231);
+    background-color: #fff;
+    .submit-btn {
+      margin: 0 40px;
+    }
+  }
+}
+</style>

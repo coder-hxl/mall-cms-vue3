@@ -1,6 +1,6 @@
 <template>
   <div class="chat">
-    <xl-editor editorId="chat" :mode="editorMode"></xl-editor>
+    <xl-editor pageName="story" :mode="editorMode"></xl-editor>
   </div>
 </template>
 
