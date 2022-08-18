@@ -50,12 +50,15 @@ const props = withDefaults(
     mode: 'default'
   }
 )
+
 const listStore = useListStore()
 const editorRef = shallowRef()
 const valueHtml = ref()
 const isSubmitDisabled = ref(true)
 
-const toolbarConfig: Partial<IToolbarConfig> = {}
+const toolbarConfig: Partial<IToolbarConfig> = {
+  excludeKeys: ['fontSize', 'fontFamily', 'lineHeight']
+}
 const editorConfig: Partial<IEditorConfig> = {
   placeholder: '请输入内容...',
   maxLength: 1000
@@ -104,7 +107,7 @@ onBeforeUnmount(() => {
       position: sticky;
       top: -20px;
       border-bottom: 1px solid rgb(231, 231, 231);
-      z-index: 1000;
+      z-index: 1;
     }
     .editor-box-editor {
       height: 800px !important;
