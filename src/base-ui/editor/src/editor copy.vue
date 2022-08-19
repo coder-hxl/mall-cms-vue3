@@ -4,7 +4,7 @@
       <Toolbar
         :defaultConfig="toolbarConfig"
         :editor="editorRef"
-        :mode="mode.value"
+        :mode="mode"
         class="editor-box-toolbar"
       />
 
@@ -13,18 +13,18 @@
           v-model="valueTitle"
           type="text"
           placeholder="请输入标题~"
-          @input="titleChange"
+          @input="handleTitle"
         />
       </div>
 
       <Editor
         v-model="valueHtml"
         :defaultConfig="editorConfig"
-        :mode="mode.value"
+        :mode="mode"
         class="editor-box-editor"
         @onCreated="handleCreated"
         @onMaxLength="handleMaxLength"
-        @onChange="contentChange"
+        @onChange="handleChange"
       />
     </div>
     <div class="submit">
@@ -32,7 +32,7 @@
         type="primary"
         :disabled="isSubmitDisabled"
         class="submit-btn"
-        @click="submitClick"
+        @click="handleSubmit"
       >
         发布
       </el-button>
@@ -41,41 +41,57 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeUnmount, shallowRef, ref, Ref } from 'vue'
+import { onBeforeUnmount, shallowRef, ref } from 'vue'
 import { Toolbar, Editor } from '@wangeditor/editor-for-vue'
 
+import { useListStore } from '@/store'
 import notification from '@/utils/notification'
 
-import { IDomEditor } from '@wangeditor/editor'
-import { IToolbarConfig, IEditorConfig } from '@wangeditor/editor'
+import { IToolbarConfig, IEditorConfig, IDomEditor } from '@wangeditor/editor'
 
 import '@wangeditor/editor/dist/css/style.css'
 
 const props = withDefaults(
   defineProps<{
-    toolbarConfig: Partial<IToolbarConfig>
-    editorConfig: Partial<IEditorConfig>
-    mode?: Ref<'default' | 'simple'>
-    titleMaxLength?: number
-    textMaxLength?: number
+    pageName: string
+    mode?: 'default' | 'simple'
   }>(),
   {
-    mode: () => ref('default'),
-    titleMaxLength: undefined,
-    textMaxLength: undefined
+    mode: 'default'
   }
 )
 
-const emit = defineEmits(['submitClick', 'titleChange', 'contentChange'])
-
+const listStore = useListStore()
 const editorRef = shallowRef()
 const valueTitle = ref('')
 const valueHtml = ref('')
 const valueText = ref('')
 const isSubmitDisabled = ref(true)
 
-const submitClick = () => {
-  emit('submitClick')
+const toolbarConfig: Partial<IToolbarConfig> = {
+  excludeKeys: [
+    'fontSize',
+    'fontFamily',
+    'lineHeight',
+    'group-justify',
+    'group-indent',
+    'fullScreen'
+  ]
+}
+const editorConfig: Partial<IEditorConfig> = {
+  placeholder: '请输入内容...',
+  maxLength: 1000
+}
+
+const handleSubmit = () => {
+  listStore.createPageDataAction({
+    pageName: props.pageName,
+    newData: {
+      title: valueTitle.value,
+      contentHtml: valueHtml.value,
+      contentText: valueText.value
+    }
+  })
 }
 
 const handleCreated = (editor: IDomEditor) => {
@@ -83,16 +99,12 @@ const handleCreated = (editor: IDomEditor) => {
 }
 
 const handleMaxLength = (editor: IDomEditor) => {
-  notification.error(`内容限制在 ${props.textMaxLength} 以内~`)
+  notification.error('内容超出限制数~')
 }
 
 const verifyValue = (title: string, text: string) => {
-  if (
-    props.titleMaxLength != undefined &&
-    title.length >= props.titleMaxLength
-  ) {
-    isSubmitDisabled.value = true
-    return notification.error(`标题限制在 ${props.titleMaxLength} 以内~`)
+  if (title.length >= 5) {
+    notification.error('标题超出限制数~')
   }
 
   if (title.trim() && text) {
@@ -102,20 +114,18 @@ const verifyValue = (title: string, text: string) => {
   }
 }
 
-const titleChange = () => {
+const handleTitle = () => {
   const title = valueTitle.value
   const text = valueText.value.trim()
 
-  emit('titleChange', valueTitle.value)
   verifyValue(title, text)
 }
 
-const contentChange = (editor: IDomEditor) => {
-  const title = valueTitle.value
+const handleChange = (editor: IDomEditor) => {
+  const title = valueTitle.value.trim()
   const text = editor.getText().trim()
   valueText.value = text
 
-  emit('contentChange', valueHtml.value, valueText.value)
   verifyValue(title, text)
 }
 

@@ -1,5 +1,7 @@
 import { ElNotification } from 'element-plus'
 
+import 'element-plus/es/components/notification/style/css'
+
 class Notification {
   success(message: string) {
     ElNotification({

@@ -26,9 +26,9 @@ export const useListStore = defineStore({
     categoryCount: 0,
     goodsList: [],
     goodsCount: 0,
-    // 故事
-    storyList: [],
-    storyCount: 0
+    // 动态
+    momentList: [],
+    momentCount: 0
   }),
   getters: {
     pageListData(state: any) {

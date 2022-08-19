@@ -13,6 +13,6 @@ export interface IListState {
   goodsList: any[]
   goodsCount: number
 
-  storyList: any[]
-  storyCount: number
+  momentList: any[]
+  momentCount: number
 }
