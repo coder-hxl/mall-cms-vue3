@@ -3,14 +3,27 @@ const path = require('path')
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
-// ElementPlus按需导入样式
-import ElementPlus from 'unplugin-element-plus/vite'
+// ElementPlus 自动导入
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+// Icons 图标自动倒入
+// import Icons from 'unplugin-icons/vite'
+// import IconsResolver from 'unplugin-icons/resolver'
 
 const pathResolve = (dirPath: any) => path.resolve(process.cwd(), dirPath)
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), ElementPlus()],
+  plugins: [
+    vue(),
+    AutoImport({
+      resolvers: [ElementPlusResolver()]
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()]
+    })
+  ],
   resolve: {
     alias: [
       {
@@ -24,7 +37,7 @@ export default defineConfig({
     host: '0.0.0.0',
     proxy: {
       '/api': {
-        // http://152.136.185.210:5000
+        // coderwhy: http://152.136.185.210:5000
         target: 'http://localhost:9000',
         changeOrigin: true,
         rewrite: (p) => p.replace(/^\/api/, '')
