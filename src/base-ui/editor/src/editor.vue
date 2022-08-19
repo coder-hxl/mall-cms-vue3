@@ -57,12 +57,10 @@ const props = withDefaults(
     editorConfig: Partial<IEditorConfig>
     mode?: Ref<'default' | 'simple'>
     titleMaxLength?: number
-    textMaxLength?: number
   }>(),
   {
     mode: () => ref('default'),
-    titleMaxLength: undefined,
-    textMaxLength: undefined
+    titleMaxLength: undefined
   }
 )
 
@@ -83,7 +81,7 @@ const handleCreated = (editor: IDomEditor) => {
 }
 
 const handleMaxLength = (editor: IDomEditor) => {
-  notification.error(`内容限制在 ${props.textMaxLength} 以内~`)
+  notification.error(`内容限制在 ${props.editorConfig.maxLength} 以内~`)
 }
 
 const verifyValue = (title: string, text: string) => {

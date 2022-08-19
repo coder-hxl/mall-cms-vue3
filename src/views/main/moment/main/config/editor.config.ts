@@ -9,7 +9,6 @@ const TEXT_MAX_LENGTH = 1000
 export const editorConfig: IXlEditorConfig = {
   mode: reactiveWidth('simple', 'default') as Ref<'default' | 'simple'>,
   titleMaxLength: TITLE_MAX_LENGTH,
-  textMaxLength: TEXT_MAX_LENGTH,
   toolbarConfig: {
     excludeKeys: [
       'fontSize',

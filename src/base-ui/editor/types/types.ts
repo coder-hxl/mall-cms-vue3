@@ -6,7 +6,6 @@ interface IXlEditorConfig {
   editorConfig: Partial<IEditorConfig>
   mode?: Ref<'default' | 'simple'>
   titleMaxLength?: number
-  textMaxLength?: number
 }
 
 export default IXlEditorConfig
