@@ -15,8 +15,14 @@ export const searchFormConfig: IForm = {
     {
       field: 'id',
       type: 'input',
-      label: 'id',
+      label: 'Id',
       placeholder: '请输入id'
+    },
+    {
+      field: 'title',
+      type: 'input',
+      label: '标题',
+      placeholder: '请输入标题'
     },
     {
       field: 'createAt',

@@ -29,6 +29,7 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     'vue/no-setup-props-destructure': 'off',
     'vue/v-on-event-hyphenation': 'off',
-    'vue/attribute-hyphenation': 'off'
+    'vue/attribute-hyphenation': 'off',
+    'vue/no-v-html': 'off'
   }
 }

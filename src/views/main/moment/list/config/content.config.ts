@@ -1,7 +1,7 @@
 import { ITable } from '@/base-ui/table'
 
 export const contentTableConfig: ITable = {
-  title: { text: '用户列表', btnText: '创建用户' },
+  title: { text: '动态列表', btnText: '' },
   showIndexColumn: true,
   showSelectColumn: true,
   propList: [
@@ -11,14 +11,14 @@ export const contentTableConfig: ITable = {
       minWidth: '60'
     },
     {
-      label: '动态',
-      prop: 'contentText',
-      minWidth: '300'
+      label: '标题',
+      prop: 'title',
+      minWidth: '180'
     },
     {
       label: '用户名',
-      prop: 'name',
-      minWidth: '60'
+      prop: 'userName',
+      minWidth: '150'
     },
     {
       label: '创建时间',

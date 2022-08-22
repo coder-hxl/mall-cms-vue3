@@ -16,7 +16,13 @@ export const modalConfig: IPageModal = {
         placeholder: '请输入id'
       },
       {
-        field: 'name',
+        field: 'title',
+        type: 'input',
+        label: '标题',
+        placeholder: '请输入标题'
+      },
+      {
+        field: 'userName',
         type: 'input',
         label: '用户名',
         placeholder: '请输入用户名'
