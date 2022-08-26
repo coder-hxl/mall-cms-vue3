@@ -62,7 +62,7 @@ const amountGoodsList = computed(() => {
       title: item.title,
       tooltip: item.tips,
       targetId: item.amount,
-      targetData: item.number1
+      targetData: item.value
     }
   })
 })
@@ -119,7 +119,7 @@ const addressGoodsSale = computed(() => {
 @media (min-width: 768px) {
   .dashboard {
     .dashboard-statistical {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
     }
 
     .dashboard-echarts {
@@ -135,7 +135,7 @@ const addressGoodsSale = computed(() => {
 @media (min-width: 1200px) {
   .dashboard {
     .dashboard-statistical {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
     }
     .dashboard-echarts {
       grid-template-areas:
