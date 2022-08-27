@@ -1,5 +1,9 @@
 import { App } from 'vue'
 
+// 手动导入缺少的组件样式
+import 'element-plus/es/components/form/style/css'
+import 'element-plus/es/components/tree/style/css'
+
 // icon
 import {
   UserFilled,
