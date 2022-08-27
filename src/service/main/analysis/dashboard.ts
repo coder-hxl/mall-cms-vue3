@@ -4,9 +4,9 @@ import { IDataType } from '../../types'
 
 enum dashboardAPI {
   amountGoodsList = '/goods/amount/list',
-  categoryGoodsCount = '/goods/category/count',
-  categoryGoodsSale = '/goods/category/sale',
-  categoryGoodsFavor = '/goods/category/favor',
+  categoryGoodsCount = '/category/goods/count',
+  categoryGoodsSale = '/category/goods/sale',
+  categoryGoodsFavor = '/category/goods/favor',
   addressGoodsSale = '/goods/address/sale'
 }
 

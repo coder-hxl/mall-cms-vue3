@@ -78,7 +78,7 @@ const categoryGoodsSale = computed(() => {
   const values: any[] = []
   for (const item of dashboardStore.categoryGoodsSale) {
     xLabel.push(item.name)
-    values.push(item.goodsCount)
+    values.push(item.saleCount)
   }
 
   return { xLabel, values }
@@ -89,7 +89,7 @@ const categoryGoodsFavor = computed(() => {
   const values: any[] = []
   for (const item of dashboardStore.categoryGoodsFavor) {
     xLabel.push(item.name)
-    values.push(item.goodsFavor)
+    values.push(item.favorCount)
   }
 
   return { xLabel, values }
