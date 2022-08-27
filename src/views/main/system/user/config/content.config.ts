@@ -27,12 +27,12 @@ export const contentTableConfig: ITable = {
     },
     {
       label: '角色',
-      prop: 'role',
+      prop: 'roleName',
       minWidth: '120'
     },
     {
       label: '部门',
-      prop: 'department',
+      prop: 'departmentName',
       minWidth: '120'
     },
     {

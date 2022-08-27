@@ -62,9 +62,6 @@ const handleQueryClick = () => {
 <style scoped lang="less">
 .page-search {
   display: flow-root;
-  .header {
-    color: red;
-  }
 
   .handle-btns {
     text-align: right;
