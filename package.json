@@ -32,7 +32,7 @@
     "@commitlint/config-conventional": "^16.2.1",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
     "@typescript-eslint/parser": "^5.15.0",
-    "@vitejs/plugin-vue": "^2.3.1",
+    "@vitejs/plugin-vue": "^2.3.4",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.11.0",
@@ -46,7 +46,7 @@
     "typescript": "^4.5.4",
     "unplugin-auto-import": "^0.11.2",
     "unplugin-vue-components": "^0.22.4",
-    "vite": "^2.9.1",
+    "vite": "^2.9.15",
     "vue-tsc": "^0.32.1"
   },
   "config": {
