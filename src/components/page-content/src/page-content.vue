@@ -15,11 +15,11 @@
 
       <!-- 列表中的插槽 -->
       <template #status="scope">
-        <el-icon v-if="scope.row.enable" :size="20" color="#67c23a">
-          <CircleCheckFilled />
-        </el-icon>
-        <el-icon v-else :size="20" color="#f56c6c">
-          <CircleCloseFilled />
+        <el-icon :size="20">
+          <component
+            :is="scope.row.enable ? 'CircleCheckFilled' : 'CircleCloseFilled'"
+            :color="scope.row.enable ? '#67c23a' : '#f56c6c'"
+          ></component>
         </el-icon>
       </template>
       <template #createAt="scope">
