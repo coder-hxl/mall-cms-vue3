@@ -2,8 +2,7 @@
 
 ## 关于
 
-MALL-CMS-Vue3 是基于 Vue3、Pinia、VueRouter、Vite、ElementPlus、TypeScript、Echart5 等技术实现的后台管理系统。
-
+MALL-CMS-Vue3 —— 基于 Vue3、Pinia、VueRouter、Vite、ElementPlus、TypeScript、Echart5 等技术开发的后台管理系统。
 
 ## 技术栈
 
