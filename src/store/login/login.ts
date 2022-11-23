@@ -66,7 +66,7 @@ export const useLoginStore = defineStore({
       this.changeToken(token)
       localCache.setCache('token', token)
 
-      // 发起初始化的请求(完整的departemts/role/menu)
+      // 发起初始化的请求(完整的departments/role/menu)
       useInitializeStore().getInitializeAction()
 
       // 2.请求用户信息
