@@ -10,7 +10,7 @@ MALL-CMS-Vue3 —— 基于 Vue3、Pinia、VueRouter、Vite、ElementPlus、Type
 
 * 编程语言: TypeScript 4 + JavaScript
 
-* 构建语言: Vite 2
+* 构建工具: Vite 2
 
 * 前端框架: Vue 3
 
