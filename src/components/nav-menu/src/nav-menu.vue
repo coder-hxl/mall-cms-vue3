@@ -73,12 +73,11 @@ const routePath = route.path
 .nav-menu {
   width: 100%;
   height: 100%;
-  overflow: hidden;
 
   .logo {
     display: flex;
     height: 28px;
-    padding: 12px 8px 10px 8px;
+    padding: 10px 8px;
     justify-content: flex-start;
     align-items: center;
 
