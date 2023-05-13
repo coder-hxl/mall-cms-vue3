@@ -40,7 +40,7 @@ const handleFoldChange = (isFold: boolean) => {
     position: fixed;
     top: 50px;
     left: 0;
-    height: 100%;
+    height: calc(100% - 48px); /* 移动端需减去导航头高度 */
     z-index: 999;
   }
 }
