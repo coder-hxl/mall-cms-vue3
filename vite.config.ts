@@ -35,8 +35,8 @@ export default defineConfig({
     proxy: {
       '/api': {
         // coderwhy: http://152.136.185.210:5000
-        // coderhxl: http://8.210.98.225:9000
-        target: 'http://localhost:9000',
+        // coderhxl: http://47.113.218.204:9000
+        target: 'http://47.113.218.204:9000',
         changeOrigin: true,
         rewrite: (p) => p.replace(/^\/api/, '')
       }
