@@ -19,7 +19,7 @@ const TIME_OUT = 10000
 if (process.env.NODE_ENV == 'development') {
   BASE_URL = '/api'
 } else if (process.env.NODE_ENV == 'production') {
-  BASE_URL = 'http://8.210.98.225:9000'
+  BASE_URL = 'http://47.113.218.204:9000'
 } else {
   BASE_URL = 'https://coderhxl.com/test'
 }
